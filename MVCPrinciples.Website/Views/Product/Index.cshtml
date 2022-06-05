@@ -20,16 +20,16 @@
 @foreach(var product in Model)
 {
     <tr>
-        <td>@product.Id</td>
-        <td class="bigger">@product.Name</td>
+        <td class="text-right">@product.Id</td>
+        <td class="bigger"><a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id">@product.Name</a></td>
         <td>@product.Category</td>
         <td>@product.Supplier</td>
-        <td>@product.UnitPrice</td>
-        <td>@product.UnitsInStock</td>
+        <td class="text-right">@product.UnitPrice?.ToString("#.00")</td>
+        <td class="text-right">@product.UnitsInStock</td>
         <td>@product.QuantityPerUnit</td>
-        <td>@product.UnitsOnOrder</td>
-        <td>@product.ReorderLevel</td>
-        <td>
+        <td class="text-right">@product.UnitsOnOrder</td>
+        <td class="text-right">@product.ReorderLevel</td>
+        <td class="text-center">
         @if(product.Discontinued)
         {
             <span>&#10004;</span>

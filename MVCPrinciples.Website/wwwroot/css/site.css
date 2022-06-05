@@ -45,3 +45,22 @@ table th {
     background-color: #254070;
     color: lightgray;
 }
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+form label{
+    font-weight:500;
+    margin-top:1.4em
+}
+form input[type=text], form select{
+    width: 30em;
+}
+form span.error{
+    color: tomato;
+}

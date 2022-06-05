@@ -1,0 +1,72 @@
+﻿@model MVCPrinciples.Website.Models.ProductEditVM
+
+@{
+    ViewData["Title"] = "Products editing";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-antiforgery="true" asp-action="Edit">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" name="ProductId" value="@Model.ProductId" />
+    <div>
+        <label asp-for="ProductName"></label><br />
+        <input type="text" asp-for="ProductName" value="@Model.ProductName"/>
+        <br /><span class="error" asp-validation-for="ProductName"></span>
+    </div>
+    <div>
+        <label asp-for="CategoryID"></label><br />
+        <select asp-for="CategoryID" asp-items="ViewBag.CategoriesDropDownOptions"></select>
+        <br /><span class="error" asp-validation-for="CategoryID"></span>
+    </div>
+    <div>
+        <label asp-for="SupplierID"></label><br />
+        <select asp-for="SupplierID" asp-items="ViewBag.SupliersDropDownOptions"></select>
+        <br /><span class="error" asp-validation-for="SupplierID"></span>
+    </div>
+    <div>
+        <label asp-for="UnitPrice"></label><br />
+        <input type="text" asp-for="UnitPrice" value="@Model.UnitPrice"/>
+        <br /><span class="error" asp-validation-for="UnitPrice"></span>
+    </div>  
+    <div>
+        <label asp-for="QuantityPerUnit"></label><br />
+        <input type="text" asp-for="QuantityPerUnit" value="@Model.QuantityPerUnit"/>
+        <br /><span class="error" asp-validation-for="QuantityPerUnit"></span>
+    </div>   
+    <div>
+        <label asp-for="UnitsInStock"></label><br />
+        <input type="text" asp-for="UnitsInStock" value="@Model.UnitsInStock"/>
+        <br /><span class="error" asp-validation-for="UnitsInStock"></span>
+    </div>
+    <div>
+        <label asp-for="UnitsOnOrder"></label><br />
+        <input type="text" asp-for="UnitsOnOrder" value="@Model.UnitsOnOrder"/>
+        <br /><span class="error" asp-validation-for="UnitsOnOrder"></span>
+    </div>   
+    <div>
+        <label asp-for="ReorderLevel"></label><br />
+        <input type="text" asp-for="ReorderLevel" value="@Model.ReorderLevel"/>
+        <br /><span class="error" asp-validation-for="ReorderLevel"></span>
+    </div>   
+    <div>
+        <label asp-for="Discontinued"></label><br />
+        <input id="AffectsUsersYes" asp-for="Discontinued" type="radio" value="true" /><span for="AffectsUsersYes">Yes</span>
+        <input id="AffectsUsersNo" asp-for="Discontinued" type="radio" value="false" /><span for="AffectsUsersNo">No</span>
+        <br /><span class="error" asp-validation-for="Discontinued"></span>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+        <a asp-action="Index">Return to droducts.</a>
+    </div>
+</form>
+
+
+
+
+
+
+@section scripts{
+ 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
