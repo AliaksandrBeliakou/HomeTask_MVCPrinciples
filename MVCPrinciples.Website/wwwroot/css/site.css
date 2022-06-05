@@ -16,3 +16,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.bigger {
+    font-size: 1.2em;
+    font-weight:600;
+}
+
+td, th{
+    padding: 5px 15px;
+}
+
+tr{
+    padding:0, 25px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #254070;
+    color: lightgray;
+}

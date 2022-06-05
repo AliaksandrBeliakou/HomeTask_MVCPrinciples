@@ -1,6 +1,49 @@
-﻿@{
+﻿@model IEnumerable<MVCPrinciples.Website.Models.ProductVM>
+
+@{
     ViewData["Title"] = "Products";
 }
 <h1>@ViewData["Title"]</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Product name</th>
+        <th>Category</th>
+        <th>Suplier</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Quantity</th>
+        <th>In order</th>
+        <th>Level</th>
+        <th>Discontinued</th>
+    </tr>
+@foreach(var product in Model)
+{
+    <tr>
+        <td>@product.Id</td>
+        <td class="bigger">@product.Name</td>
+        <td>@product.Category</td>
+        <td>@product.Supplier</td>
+        <td>@product.UnitPrice</td>
+        <td>@product.UnitsInStock</td>
+        <td>@product.QuantityPerUnit</td>
+        <td>@product.UnitsOnOrder</td>
+        <td>@product.ReorderLevel</td>
+        <td>
+        @if(product.Discontinued)
+        {
+            <span>&#10004;</span>
+        }
+        else
+        {
+            <span>&#10006;</span>
+        }
+        </td>
+    </tr>
+}
+</table>
 
+@if(!Model.Any())
+{
 <p>No products yet.</p>
+}

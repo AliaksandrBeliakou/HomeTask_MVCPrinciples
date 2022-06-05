@@ -1,6 +1,21 @@
-﻿@{
+﻿@model IEnumerable<MVCPrinciples.Website.Models.CategoryVM>
+
+@{
     ViewData["Title"] = "Categories";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>No categories yet.</p>
+<table>
+@foreach(var category in Model)
+{
+    <tr><td>
+    <img src="@category.Base64Picture" alt="@category.Name" />
+    </td><td>
+    <h3>@category.Name</h3>
+    <p>@category.Description</p>
+    </td></tr>
+}
+</table>
+@if(!Model.Any())
+{
+    <p>No categories yet.</p>
+}
